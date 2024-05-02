@@ -15,6 +15,10 @@
         <div class="col">
             <h2>Tasks</h2>
 
+            <div>
+                <a href="#" hx-get="/newtaskform" hx-target="#addTaskForm">Add New Item</a>
+            </div>
+
             <div id="taskList" hx-get="/tasks" hx-trigger="load" hx-swap="innerHTML">
 
             </div>
@@ -29,6 +33,7 @@
             <div id="addTaskForm">
                 {{template "addTaskForm"}}
             </div>
+            
         </div>
 
     </div>

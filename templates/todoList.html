@@ -1,7 +1,13 @@
 {{define "todoList"}}
 <ul>
     {{range .}}
-        <li>{{.Task}} (Status: {{.Done}})</li>
+        <li>
+            <span {{if .Done}} style="text-decoration:line-through" {{end}}>{{.Task}}</span>
+            [<a href="#" hx-get="/gettaskupdateform/{{.Id}}" hx-target="#addTaskForm" hx-swap="innerHTML">Edit</a>] | 
+            <a href="#" hx-delete="/tasks/{{.Id}}" 
+                        hx-confirm="Are you sure you want to Delete this Task?"
+                        hx-target="#taskList">[Delete]</a>
+        </li>
     {{end}}
 </ul>
 

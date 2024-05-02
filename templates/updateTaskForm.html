@@ -1,0 +1,16 @@
+{{define "updateTaskForm"}}
+<form>
+    <div>
+        <input type="text" class="form-control" name="task" value="{{.Task}}">
+    </div>
+    <div>
+        <input type="checkbox" name="done" {{if .Done}} checked {{end}} id="">
+    </div>
+    <div class="mt-2">
+        <button class="btn btn-primary" hx-put="/tasks/{{.Id}}" hx-target="#taskList" hx-target="innerHTML">
+            Update Task
+        </button>
+    </div>
+
+</form>
+{{end}}
